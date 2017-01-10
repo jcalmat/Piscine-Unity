@@ -52,8 +52,8 @@ public class playerScript_ex01 : MonoBehaviour {
         	if (coll.gameObject.tag != "hero")
 	        	transform.parent = coll.transform;
         	var normal = coll.contacts[0].normal;
-    		if (normal.y > 0) {
-      			characters[currentCharacter].canJump = true;
+			if (normal.y > 0) {
+				canJump = true;
     		}
 		}
     }
@@ -98,8 +98,8 @@ public class playerScript_ex01 : MonoBehaviour {
 		//Move
 		if (Input.GetKey("right"))
 			characters[currentCharacter].transform.Translate(Vector3.right * speed * Time.deltaTime);
-		if (Input.GetKey("left"))
-			characters[currentCharacter].transform.Translate(Vector3.left * speed * Time.deltaTime);			
+		if (Input.GetKey ("left"))
+			characters [currentCharacter].transform.Translate (Vector3.left * speed * Time.deltaTime);
 
 		if (characters[currentCharacter].canJump && Input.GetKeyDown("space")) {
 			characters[currentCharacter].canJump = false;
