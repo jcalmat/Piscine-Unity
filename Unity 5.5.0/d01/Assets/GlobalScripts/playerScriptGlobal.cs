@@ -31,7 +31,8 @@ public class playerScriptGlobal : MonoBehaviour {
 	
 	 void OnCollisionEnter2D(Collision2D coll) {
         	Debug.Log(coll.gameObject.tag);
-        if((coll.gameObject.tag == "wall" || coll.gameObject.tag == "hero" || coll.gameObject.tag == "plateform" || coll.gameObject.tag == "vPlatform" || coll.gameObject.tag == "hPlatform") && coll.contacts.Length > 0) {
+		Debug.Log ("lolilol");
+		if((coll.gameObject.tag == "wall" || coll.gameObject.tag == "hero" || coll.gameObject.tag == "platform" || coll.gameObject.tag == "vPlatform" || coll.gameObject.tag == "hPlatform" || coll.gameObject.tag == "door") && coll.contacts.Length > 0) {
         	var normal = coll.contacts[0].normal;
     		if (normal.y > 0) {
       			characters[currentCharacter].canJump = true;

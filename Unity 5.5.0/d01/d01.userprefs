@@ -1,0 +1,14 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/GlobalScripts/colorSwitchScript.cs">
+    <Files>
+      <File FileName="Assets/GlobalScripts/switchScript.cs" Line="38" Column="1" />
+      <File FileName="Assets/GlobalScripts/colorSwitchScript.cs" Line="26" Column="69" />
+      <File FileName="Assets/GlobalScripts/playerScriptGlobal.cs" Line="34" Column="25" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

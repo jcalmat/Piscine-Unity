@@ -48,7 +48,7 @@ public class playerScript_ex01 : MonoBehaviour {
 	}
 
 	 void OnCollisionEnter2D(Collision2D coll) {
-        if((coll.gameObject.tag == "wall" || coll.gameObject.tag == "hero" || coll.gameObject.tag == "plateform" || coll.gameObject.tag == "vPlatform" || coll.gameObject.tag == "hPlatform") && coll.contacts.Length > 0) {
+        if((coll.gameObject.tag == "wall" || coll.gameObject.tag == "hero" || coll.gameObject.tag == "platform" || coll.gameObject.tag == "vPlatform" || coll.gameObject.tag == "hPlatform") && coll.contacts.Length > 0) {
         	if (coll.gameObject.tag != "hero")
 	        	transform.parent = coll.transform;
         	var normal = coll.contacts[0].normal;
