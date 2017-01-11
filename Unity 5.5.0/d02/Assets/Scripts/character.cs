@@ -40,7 +40,6 @@ public class character : MonoBehaviour {
 			if (Input.GetKey(KeyCode.LeftControl))
 				manager.charactersList.Add(this);
 			else {
-				Debug.Log("clear");
 				foreach (character character in manager.charactersList) {
 					if(character.isSelected)
 						character.isSelected = false;
@@ -52,23 +51,40 @@ public class character : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
-		endpoint = transform.position;
 		if (other.transform.tag == "orc_town" || other.transform.tag == "orc" || other.transform.tag == "orc_townhall") {
 			isAttacking = true;
+			activateTrigger("stay");
 			activateTrigger("attack");
-			currentEnemyAttacked = other.gameObject;
+			endpoint = transform.position;
 		}
 	}
 
+
 	void OnCollisionExit2D(Collision2D other) {
-		currentEnemyAttacked = null;
+		isAttacking = false;
+		//		currentEnemyAttacked = null;
 	}
 
 	void attackEnemy(GameObject enemy) {
-		enemy.gameObject.GetComponent<buildings>().buildingsHP -= attack;
-		if (enemy.gameObject.GetComponent<buildings> ().isDead) {
-			currentEnemyAttacked = null;
-			activateTrigger("stay");
+//		transform.position = Vector3.MoveTowards(transform.position, enemy.transform.position, speed * Time.deltaTime);
+		if (isAttacking) {
+			if (enemy.tag == "orc") {
+				if (enemy.gameObject.GetComponent<orc> ().isDead) {
+					currentEnemyAttacked = null;
+					activateTrigger ("stay");
+				} else {
+					enemy.gameObject.GetComponent<orc> ().orcHP -= attack;
+					Debug.Log ("Orc unit [" + enemy.gameObject.GetComponent<orc> ().orcHP + "/" + enemy.gameObject.GetComponent<orc> ().maxHP + "]HP has been attacked.");
+				}
+			} else if (enemy.tag == "orc_town" || enemy.tag == "orc_townhall") {
+				if (enemy.gameObject.GetComponent<buildings> ().isDead) {
+					currentEnemyAttacked = null;
+					activateTrigger ("stay");
+				} else {
+					enemy.gameObject.GetComponent<buildings> ().buildingsHP -= attack;
+					Debug.Log ("Orc building [" + enemy.gameObject.GetComponent<buildings> ().buildingsHP + "/" + enemy.gameObject.GetComponent<buildings> ().buildingMaxHP + "]HP has been attacked.");
+				}
+			}
 		}
 		canAttack = false;
 		nextAttack = Time.time + 0.4;
@@ -86,11 +102,11 @@ public class character : MonoBehaviour {
 		}
 		if (currentEnemyAttacked != null && canAttack)
 			attackEnemy (currentEnemyAttacked);
-		if (direction != characterDirection.STAY) {
-			isAttacking = false;
+		else if (direction != characterDirection.STAY) {
+
 			transform.position = Vector3.MoveTowards(transform.position, endpoint, speed * Time.deltaTime);
 		}
-		if (transform.position == endpoint && direction != characterDirection.STAY && !isAttacking) {
+		if (transform.position == endpoint && direction != characterDirection.STAY) {
 			activateTrigger("stay");
 			changeDirection(characterDirection.STAY);
 		}

@@ -4,38 +4,43 @@ using UnityEngine;
 
 public class buildings : MonoBehaviour {
 
+	public float buildingMaxHP;
 	public float buildingsHP;
 	public bool isDead = false;
 	public Sprite deadSprite;
-	private bool changedSprite = false;
 
-	//townhall
-	public float spawnTime = 10;
-	public GameObject unit;
-	private float timer = 0;
+	public GameObject townHall;
+
+	public AudioClip audio;
 
 	// Use this for initialization
 	void Start () {
-		
+		if (tag == "human_town")
+			townHall = GameObject.FindGameObjectWithTag ("human_townhall");
+		else if (tag == "orc_town")
+			townHall = GameObject.FindGameObjectWithTag ("orc_townhall");
+		buildingMaxHP = buildingsHP;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (buildingsHP <= 0) {
+		if (buildingsHP < 0)
+			buildingsHP = 0;
+		if (buildingsHP == 0 && !isDead) {
 			isDead = true;
+			GetComponent<AudioSource>().Play();
+			increaseSpawnTime ();
 			gameObject.GetComponent<Collider2D> ().enabled = false;
-			if (!changedSprite) {
-				GetComponent<SpriteRenderer> ().sprite = deadSprite;
-				changedSprite = true;
-			}
-		} else {
-			if (transform.tag == "orc_townhall" || transform.tag == "human_townhall") {
-				if (timer >= spawnTime) {
-					timer = 0;
-					GameObject.Instantiate(unit, new Vector3(transform.position.x, transform.position.y - 1, 0), Quaternion.identity);
-				}
-				timer += Time.deltaTime;
-			}
+			GetComponent<SpriteRenderer> ().sprite = deadSprite;
+
+			if (tag == "human_townHall")
+				Debug.Log ("The Orcs Team wins.");
+			else if (tag == "orc_townHall")
+				Debug.Log ("The Humans Team wins.");
 		}
+	}
+
+	void increaseSpawnTime() {
+		townHall.GetComponent<townHallSpawner> ().spawnTime += 2.5f;
 	}
 }
