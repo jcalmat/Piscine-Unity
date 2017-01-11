@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playerScript_ex01 : MonoBehaviour {
 
@@ -41,10 +42,10 @@ public class playerScript_ex01 : MonoBehaviour {
 	}
 
 	void loadLevel() {
-		if(currentLevel + 1 <= Application.levelCount - 1)
-			Application.LoadLevel(++currentLevel);
+		if(currentLevel + 1 <= SceneManager.sceneCount - 1)
+			SceneManager.LoadScene (++currentLevel);
 		else
-			Application.LoadLevel(1);
+			SceneManager.LoadScene (1);
 	}
 
 	 void OnCollisionEnter2D(Collision2D coll) {
@@ -86,8 +87,8 @@ public class playerScript_ex01 : MonoBehaviour {
 	void Update () {
 
 		//Reset the level
-		if (Input.GetKey("r"))
-			Application.LoadLevel(currentLevel);
+		if (Input.GetKey ("r"))
+			SceneManager.LoadScene (currentLevel);
 		//Get a character
 		if (Input.GetKey("1"))
 			currentCharacter = 0;

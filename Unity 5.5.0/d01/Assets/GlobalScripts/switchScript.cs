@@ -43,11 +43,5 @@ public class switchScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-//		if (!isTriggered) {
-//			for (int i = 0; i < gameobjects.Length; i++) {
-//				if (gameobjects[i].transform.position.y > doorOriginY[i])
-//					gameobjects[i].transform.Translate (Vector3.down * Time.deltaTime * 5);
-//			}
-//		}
 	}
 }
