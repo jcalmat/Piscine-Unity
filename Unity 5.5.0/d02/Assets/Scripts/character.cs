@@ -62,6 +62,8 @@ public class character : MonoBehaviour {
 
 	void OnCollisionExit2D(Collision2D other) {
 		isAttacking = false;
+//		activateTrigger("stay");
+//		changeEndpoint (other.transform.position);
 		//		currentEnemyAttacked = null;
 	}
 
@@ -71,6 +73,7 @@ public class character : MonoBehaviour {
 			if (enemy.tag == "orc") {
 				if (enemy.gameObject.GetComponent<orc> ().isDead) {
 					currentEnemyAttacked = null;
+					isAttacking = false;
 					activateTrigger ("stay");
 				} else {
 					enemy.gameObject.GetComponent<orc> ().orcHP -= attack;
@@ -79,13 +82,16 @@ public class character : MonoBehaviour {
 			} else if (enemy.tag == "orc_town" || enemy.tag == "orc_townhall") {
 				if (enemy.gameObject.GetComponent<buildings> ().isDead) {
 					currentEnemyAttacked = null;
+					isAttacking = false;
 					activateTrigger ("stay");
 				} else {
 					enemy.gameObject.GetComponent<buildings> ().buildingsHP -= attack;
 					Debug.Log ("Orc building [" + enemy.gameObject.GetComponent<buildings> ().buildingsHP + "/" + enemy.gameObject.GetComponent<buildings> ().buildingMaxHP + "]HP has been attacked.");
 				}
 			}
-		}
+		} else 
+			changeEndpoint (enemy.transform.position);
+		
 		canAttack = false;
 		nextAttack = Time.time + 0.4;
 	}
@@ -118,6 +124,32 @@ public class character : MonoBehaviour {
 
 	public void changeEndpoint(Vector3 _endpoint) {
 		endpoint = _endpoint;
+		Vector3 newDirection = new Vector3 (_endpoint.x - transform.position.x, _endpoint.y - transform.position.y, 0);
+		if (newDirection.x == 0 && newDirection.y > 0) {
+			activateTrigger ("walk_up");
+			changeDirection (characterDirection.UP);
+		} else if (newDirection.x == 0 && newDirection.y < 0) {
+			activateTrigger ("walk_down");
+			changeDirection (characterDirection.DOWN);
+		} else if (newDirection.x < 0 && newDirection.y == 0) {
+			activateTrigger ("walk_left");
+			changeDirection (characterDirection.LEFT);
+		} else if (newDirection.x > 0 && newDirection.y == 0) {
+			activateTrigger ("walk_right");					
+			changeDirection (characterDirection.RIGHT);
+		} else if (newDirection.x < 0 && newDirection.y > 0) {
+			activateTrigger ("walk_up_left");
+			changeDirection (characterDirection.UP_LEFT);
+		} else if (newDirection.x > 0 && newDirection.y > 0) {
+			activateTrigger ("walk_up_right");
+			changeDirection (characterDirection.UP_RIGHT);
+		} else if (newDirection.x < 0 && newDirection.y < 0) {
+			activateTrigger ("walk_down_left");
+			changeDirection (characterDirection.DOWN_LEFT);
+		} else if (newDirection.x > 0 && newDirection.y < 0) {
+			activateTrigger ("walk_down_right");
+			changeDirection (characterDirection.DOWN_RIGHT);
+		}
 	}
 
 	public void activateTrigger(string trigger) {

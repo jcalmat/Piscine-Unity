@@ -33,10 +33,13 @@ public class buildings : MonoBehaviour {
 			gameObject.GetComponent<Collider2D> ().enabled = false;
 			GetComponent<SpriteRenderer> ().sprite = deadSprite;
 
-			if (tag == "human_townHall")
+			if (transform.tag == "human_townhall") {
 				Debug.Log ("The Orcs Team wins.");
-			else if (tag == "orc_townHall")
+				Time.timeScale = 0;
+			} else if (transform.tag == "orc_townhall") {
 				Debug.Log ("The Humans Team wins.");
+				Time.timeScale = 0;
+			}
 		}
 	}
 
