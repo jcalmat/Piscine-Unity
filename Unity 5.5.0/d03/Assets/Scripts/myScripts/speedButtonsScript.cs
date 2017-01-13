@@ -27,4 +27,8 @@ public class speedButtonsScript : MonoBehaviour {
 	public void accelerate2() {
 		manager.changeSpeed (5);
 	}
+
+	public void pause() {
+		manager.changeSpeed (0);
+	}
 }

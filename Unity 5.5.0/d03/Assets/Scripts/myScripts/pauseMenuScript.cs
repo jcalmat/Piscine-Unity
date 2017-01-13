@@ -50,7 +50,7 @@ public class pauseMenuScript : MonoBehaviour {
 		exitConfirm.GetComponent<CanvasGroup> ().interactable = true;
 	}
 
-	void hideExitMenu() {
+	public void hideExitMenu() {
 		Debug.Log ("hide exit menu");
 		exitConfirm.GetComponent<CanvasGroup> ().alpha = 0;
 		exitConfirm.GetComponent<CanvasGroup> ().blocksRaycasts = false;
@@ -66,7 +66,7 @@ public class pauseMenuScript : MonoBehaviour {
 		pauseMenu.GetComponent<CanvasGroup> ().interactable = true;
 	}
 
-	void hideMenu() {
+	public void hideMenu() {
 		pause = false;
 		manager.pause (false);
 		pauseMenu.GetComponent<CanvasGroup> ().alpha = 0;

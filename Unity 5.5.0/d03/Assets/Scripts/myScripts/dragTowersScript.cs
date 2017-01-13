@@ -9,8 +9,10 @@ public class dragTowersScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
 	public GameObject itemBeingDragged;
 	public towerScript tower;
-	public gameManager manager;
+	public GameObject objmanager;
 	public bool isDraggable = true;
+
+	private gameManager manager;
 
 	public void OnBeginDrag(PointerEventData eventData) {
 		if (isDraggable) {
@@ -21,7 +23,6 @@ public class dragTowersScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 
 	public void OnDrag(PointerEventData eventData) {
 		if (isDraggable) {
-			Debug.Log (itemBeingDragged.transform.position);
 			itemBeingDragged.transform.position = Camera.main.ScreenToWorldPoint (new Vector3(Input.mousePosition.x, Input.mousePosition.y, 10));
 		}
 	}
@@ -31,7 +32,6 @@ public class dragTowersScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 			if (itemBeingDragged != null) {
 				RaycastHit2D hit = Physics2D.Raycast (Camera.main.ScreenToWorldPoint (Input.mousePosition), Vector2.zero);
 				if (hit && hit.collider.transform.tag == "empty") {
-					Debug.Log (hit.collider.gameObject.transform.tag);
 					manager.playerEnergy -= tower.energy;
 					Instantiate (tower, hit.collider.gameObject.transform.position, Quaternion.identity);			
 				}
@@ -42,6 +42,7 @@ public class dragTowersScript : MonoBehaviour, IBeginDragHandler, IDragHandler, 
 	}
 	// Use this for initialization
 	void Start () {
+		manager = objmanager.GetComponent<speedButtonsScript> ().manager;
 	}
 	
 	// Update is called once per frame

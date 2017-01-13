@@ -5,10 +5,15 @@ using UnityEngine.UI;
 
 public class hudUserInfos : MonoBehaviour {
 
-	public gameManager manager;
+	public GameObject objmanager;
+	private gameManager manager;
 	public Text userHP;
 	public Text userEnergy;
 
+
+	void Start() {
+		manager = objmanager.GetComponent<speedButtonsScript> ().manager;
+	}
 	// Update is called once per frame
 	void Update () {
 		int playerHP = manager.playerHp;
