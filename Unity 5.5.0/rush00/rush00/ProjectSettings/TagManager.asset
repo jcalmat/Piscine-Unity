@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Weapon
+  - Enemy
+  - Bullet
+  - SoundToken
+  - Door
+  - finalCar
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Enemy
+  - Player
+  - EnemyBullet
+  - PlayerBullet
+  - Obstacle
+  - Effect
+  - SoundToken
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Background
+    uniqueID: 426222055
+    locked: 0
+  - name: Weapon
+    uniqueID: 4244947197
+    locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Enemy
+    uniqueID: 4239040829
+    locked: 0
+  - name: Player
+    uniqueID: 1706799677
+    locked: 0
+  - name: EquipedWeapon
+    uniqueID: 488075375
+    locked: 0
+  - name: ui
+    uniqueID: 801025413
+    locked: 0
