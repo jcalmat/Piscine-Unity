@@ -39,19 +39,19 @@ public class camera : MonoBehaviour {
 		Quaternion localRotation = Quaternion.Euler(rotX, rotY, 0.0f);
 		transform.rotation = localRotation;
 
-		if (Input.GetKey (KeyCode.LeftShift))
-			speed = 10;
-		else
-			speed = 5;
-		
-		if (Input.GetKey (KeyCode.W))
-			transform.Translate (Vector3.forward * speed * Time.deltaTime);
-		if (Input.GetKey(KeyCode.S))
-			transform.Translate (Vector3.back * speed * Time.deltaTime);
-		if (Input.GetKey(KeyCode.A))
-			transform.Translate (Vector3.left * speed * Time.deltaTime);
-		if (Input.GetKey(KeyCode.D))
-			transform.Translate (Vector3.right * speed * Time.deltaTime);
+//		if (Input.GetKey (KeyCode.LeftShift))
+//			speed = 10;
+//		else
+//			speed = 5;
+//		
+//		if (Input.GetKey (KeyCode.W))
+//			transform.Translate (Vector3.forward * speed * Time.deltaTime);
+//		if (Input.GetKey(KeyCode.S))
+//			transform.Translate (Vector3.back * speed * Time.deltaTime);
+//		if (Input.GetKey(KeyCode.A))
+//			transform.Translate (Vector3.left * speed * Time.deltaTime);
+//		if (Input.GetKey(KeyCode.D))
+//			transform.Translate (Vector3.right * speed * Time.deltaTime);
 
 
 	}
