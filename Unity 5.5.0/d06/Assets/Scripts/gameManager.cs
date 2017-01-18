@@ -19,6 +19,6 @@ public class gameManager : MonoBehaviour {
 	}
 
 	public void cameraSpotPlayer() {
-		player.playerSpotted (5);
+		player.playerSpotted (20);
 	}
 }

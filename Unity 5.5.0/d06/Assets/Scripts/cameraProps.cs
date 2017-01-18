@@ -11,6 +11,8 @@ public class cameraProps : MonoBehaviour {
 	public LayerMask targetMask;
 	public LayerMask obstacleMask;
 
+	public GameObject megaPhone;
+
 	[HideInInspector]
 	public List<Transform> visibleTargets = new List<Transform>();
 
@@ -40,6 +42,9 @@ public class cameraProps : MonoBehaviour {
 				if (!Physics.Raycast (transform.position, dirToTarget, dstToTarget, obstacleMask)) {
 					visibleTargets.Add (target);
 					gameManager.gm.cameraSpotPlayer ();
+					if (!megaPhone.GetComponent<AudioSource> ().isPlaying) {
+						megaPhone.GetComponent<AudioSource> ().Play ();
+					}
 				}
 			}
 		}

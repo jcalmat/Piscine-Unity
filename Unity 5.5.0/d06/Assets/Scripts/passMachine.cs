@@ -13,7 +13,8 @@ public class passMachine : MonoBehaviour {
 			if (other.gameObject.GetComponent<player> ().playerHasKey()) {
 				Debug.Log ("open Door");
 				other.gameObject.GetComponent<player> ().removeKey ();
-				door.transform.position = Vector3.MoveTowards(door.transform.position, new Vector3(door.transform.position.x, door.transform.position.y, door.transform.position.z + 40), 100 * Time.deltaTime);
+				door.GetComponent<Animator> ().SetTrigger ("openDoor");
+
 			} else {
 				AudioSource audio = gameObject.GetComponent<AudioSource> ();
 				audio.clip = wrongKey;
