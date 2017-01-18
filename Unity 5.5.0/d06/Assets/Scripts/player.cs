@@ -39,10 +39,11 @@ public class player : MonoBehaviour {
 	public void removeKey() {
 		haskey = false;
 	}
-
+		
 	void OnTriggerEnter(Collider other) {
 		if (other.gameObject.tag == "panamaPapers") {
-			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
+			gameManager.gm.setMessage ("Congratulations Fisher, once again you helped us a lot.");
+			StartCoroutine ("displayMessageBeforeRestart");
 		}
 	}
 
@@ -52,6 +53,7 @@ public class player : MonoBehaviour {
 			audio.Play ();
 			StartCoroutine (waitBeforeDelete (other.gameObject));
 			haskey = true;
+			gameManager.gm.setMessage ("You got the key ! Now you have to find the hidden papers.");
 		} else if (other.gameObject.tag == "light") {
 			playerSpotted (.5f);
 		}
@@ -97,7 +99,8 @@ public class player : MonoBehaviour {
 		}
 
 		if (invisible >= 100) {
-			SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
+			gameManager.gm.setMessage ("You have been spotted, RIP in peace.");
+			StartCoroutine ("displayMessageBeforeRestart");
 		}
 
 		if (Input.GetKey (KeyCode.W))
@@ -113,6 +116,12 @@ public class player : MonoBehaviour {
 		if (!Input.GetKey (KeyCode.D) && !Input.GetKey (KeyCode.A) && !Input.GetKey (KeyCode.S) && !Input.GetKey (KeyCode.W)) {
 			currentWalkSpeed = currentWalkSpeedEnum.stay;
 		}
+	}
+
+	IEnumerator displayMessageBeforeRestart() {
+		yield return new WaitForSeconds (4);
+		SceneManager.LoadScene (SceneManager.GetActiveScene().buildIndex);
+
 	}
 
 
