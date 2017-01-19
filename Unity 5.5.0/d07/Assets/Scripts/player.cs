@@ -12,9 +12,19 @@ public class player : MonoBehaviour {
 	public GameObject Tower;
 	public GameObject Wheel;
 
+	public AudioClip missileSound;
+	public AudioClip gunSound;
+
 	private float sensitivityY = 10f;
 
 	private float boost = 100;
+
+	public float range = 100;
+
+	private int ammo = 5;
+
+	public GameObject particleGun;
+	public GameObject particleMissile;
 
 	// Use this for initialization
 	void Start () {
@@ -31,6 +41,25 @@ public class player : MonoBehaviour {
 		Tower.transform.localEulerAngles = new Vector3 (0, rotationX, 0);
 		//		transform.Rotate (0, 20 * Time.deltaTime, 0);
 
+		Vector3 fwd = Tower.transform.TransformDirection (Vector3.forward);
+		RaycastHit raycastHit;
+		if (Physics.Raycast(Tower.transform.position, fwd, out raycastHit, range)) {
+			if (Input.GetKey (KeyCode.Mouse0)) {
+				Debug.Log ("piou piou");
+				StartCoroutine ("playGunSound");
+//				particleGun.GetComponent<ParticleSystem> ().Play ();
+				Instantiate (particleGun, raycastHit.point, Quaternion.identity);
+			} else if (Input.GetKeyDown (KeyCode.Mouse1) && ammo > 0) {
+				Debug.Log ("boum boum");
+				Instantiate (particleMissile, raycastHit.point, Quaternion.identity);
+				Tower.GetComponent<AudioSource> ().clip = missileSound;
+				Tower.GetComponent<AudioSource> ().Play ();
+				ammo -= 1;
+			} else {
+				StopCoroutine ("playGunSound");
+			}
+			Debug.DrawLine(transform.position, raycastHit.point, Color.red);
+		}
 
 		if (Input.GetKey (KeyCode.W))
 			transform.Translate (Vector3.forward * speed * Time.deltaTime);
@@ -50,5 +79,13 @@ public class player : MonoBehaviour {
 		}
 		if (boost < 100)
 			boost += 5;
+	}
+
+	IEnumerator playGunSound() {
+		Tower.GetComponent<AudioSource> ().clip = gunSound;
+		while (true) {
+			Tower.GetComponent<AudioSource> ().Play ();
+			yield return new WaitForSeconds (0.4f);
+		}
 	}
 }
