@@ -34,8 +34,8 @@ public class SkillsManager : MonoBehaviour {
 			return;
 
 		GameObject.Instantiate (fireBall, transform.position, transform.rotation).GetComponent<FireBall> ().direction (destination);
-		after (destination);
-
+		//after (destination);
+		StartCoroutine(after(destination));
 		Canlaunch = false;
 		Invoke("Reload", ReloadTime);
 	}

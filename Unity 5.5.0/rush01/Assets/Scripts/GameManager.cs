@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour {
 	public GameObject upgradeButton;
 	public GameObject statsPanel;
 	public GameObject skillTree;
+	public GameObject levelingMenu;
 
 	// Use this for initialization
 	void Start () {
@@ -63,6 +64,12 @@ public class GameManager : MonoBehaviour {
 
 		if (Input.GetKeyDown (KeyCode.N))
 			skillTree.SetActive (!skillTree.activeSelf);
+
+		Debug.Log (levelingMenu.activeSelf);
+		if (levelingMenu.activeSelf || inventory.gameObject.activeSelf)
+			maya.canMove = false;
+		else
+			maya.canMove = true;
 	}
 
 	public int getMayaLevel() {
@@ -99,10 +106,10 @@ public class GameManager : MonoBehaviour {
 				open_inventory = false;
 			}
 		}
-		if (open_inventory == true)	
-			inventory.gameObject.SetActive(true);
+		if (open_inventory == true)
+			inventory.gameObject.SetActive (true);
 		else
-			inventory.gameObject.SetActive(false);
+			inventory.gameObject.SetActive (false);
 	}
 
 	void check_mouse_tooltip() {

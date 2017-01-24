@@ -54,6 +54,8 @@ public class mayaLeveling : MonoBehaviour {
 	}
 
 	public void displayUpgradeMenu() {
+		if (!upgradeMenu.activeSelf)
+			maya.agent.destination = maya.transform.position;
 		upgradeMenu.SetActive (!upgradeMenu.activeSelf);
 		statsMenu.SetActive (upgradeMenu.activeSelf);
 	}

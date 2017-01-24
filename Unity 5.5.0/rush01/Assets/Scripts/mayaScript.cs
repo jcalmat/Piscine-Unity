@@ -9,7 +9,7 @@ public class mayaScript : MonoBehaviour {
 
 	public LayerMask mask;
 	private Vector3 destination;
-	private NavMeshAgent agent;
+	[HideInInspector] public NavMeshAgent agent;
 	private Animator animator;
 	private SkillsManager skills;
 	private GameObject currentEnemy;
@@ -64,13 +64,14 @@ public class mayaScript : MonoBehaviour {
 		if (HP > maxHP)
 			HP = maxHP;
 		maxHP = 5 * CON;
-		minDamage = STR / 2;
-		maxDamage = minDamage + minDamage / 5;
+//		minDamage = STR / 2;
+//		maxDamage = minDamage + minDamage / 5;
 	}
 
 	void Update () {
 		RaycastHit hit;
-
+		minDamage = STR / 2;
+		maxDamage = minDamage + minDamage / 5;
 		//press Q for fireball
 		if (Input.GetKeyDown (KeyCode.Q)) {
 			if (Physics.Raycast (Camera.main.ScreenPointToRay (Input.mousePosition), out hit, 100)) {

@@ -67,12 +67,12 @@ public class enemyScript : MonoBehaviour {
 		Collider[] colliders = Physics.OverlapSphere (transform.position, radius, mask);
 		if (colliders.Length > 0) {
 			maya = colliders [0].transform.gameObject;
-			if (HP > 0 && !isAttacking && maya.GetComponent<mayaScript>().HP > 0)
+			if (maya != null  && maya.GetComponent<mayaScript>().agent != null && HP > 0 && !isAttacking && maya.GetComponent<mayaScript>().HP > 0)
 				agent.destination = maya.gameObject.transform.position;
 		}
 
 		if (agent.velocity.magnitude > 0.2) {
-			if (maya.GetComponent<mayaScript>().HP > 0 && Vector3.Distance (transform.position, maya.transform.position) < 2) {
+			if (maya != null && maya.GetComponent<mayaScript>().HP > 0 && Vector3.Distance (transform.position, maya.transform.position) < 2) {
 				transform.LookAt (maya.transform.position);
 				animator.SetBool ("attack", true);
 				isAttacking = true;
