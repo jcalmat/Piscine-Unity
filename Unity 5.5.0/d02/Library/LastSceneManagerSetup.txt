@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Scenes/ex00.unity
-  isLoaded: 1
-  isActive: 1
