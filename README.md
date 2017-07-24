@@ -5,7 +5,7 @@ The Piscine is a 2 weeks training session in which we discover and learn a langu
 Basically everyday we had to make a game to learn and practice differents parts of Unity and game programming in general.
 The first week was focused on 2D games and the other one on 3D.
 
-At the end of each week, we had what we call a 'rush': We had 2 days to make a real game based on what we learnedm just like in a game jam.
+At the end of each week, we had what we call a 'rush': 2 days to make a real game based on what we learned just like in a game jam.
 
 ## Shortcuts
 
