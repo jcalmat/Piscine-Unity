@@ -26,7 +26,7 @@ At the end of each week, we had what we call a 'rush': 2 days to make a real gam
 * [Animation](D08%20-%20Animation)
 * [Rush01 - RPG](/RUSH01%20-%20RPG)
 
-### Some screenshots
+## Some screenshots
 
 From a basical plateformer like Thomas was alone
 
