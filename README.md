@@ -34,7 +34,7 @@ From a basical plateformer like Thomas was alone
 
 To a tower defense
 
-![d03](/Screenshots/d03_1)
+![d03](/Screenshots/d03_1.png)
 
 Or a RPG/hack'n'slash
 
