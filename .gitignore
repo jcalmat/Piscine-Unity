@@ -17,3 +17,5 @@ sysinfo.txt
 .DS_Store*
 ._*
 .Trashes
+
+*.meta
