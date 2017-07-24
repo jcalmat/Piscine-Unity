@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D06 - 3D Audio & Shaders & Particules", "Assembly-CSharp-firstpass.csproj", "{F5C0AC90-F907-6907-1DEE-1BA294EB5F24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D06 - 3D Audio & Shaders & Particules", "Assembly-CSharp.csproj", "{D73441AD-5395-0CE5-112F-14A67C503528}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D06 - 3D Audio & Shaders & Particules", "Assembly-CSharp-Editor.csproj", "{7B87D428-F80E-338A-4D59-F7593FFFA304}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F5C0AC90-F907-6907-1DEE-1BA294EB5F24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5C0AC90-F907-6907-1DEE-1BA294EB5F24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5C0AC90-F907-6907-1DEE-1BA294EB5F24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5C0AC90-F907-6907-1DEE-1BA294EB5F24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D73441AD-5395-0CE5-112F-14A67C503528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D73441AD-5395-0CE5-112F-14A67C503528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D73441AD-5395-0CE5-112F-14A67C503528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D73441AD-5395-0CE5-112F-14A67C503528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B87D428-F80E-338A-4D59-F7593FFFA304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B87D428-F80E-338A-4D59-F7593FFFA304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B87D428-F80E-338A-4D59-F7593FFFA304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B87D428-F80E-338A-4D59-F7593FFFA304}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal

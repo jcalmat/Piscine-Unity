@@ -3,8 +3,9 @@
 The Piscine is a 2 weeks training session in which we discover and learn a language, a framework or in this case how to use Unity.
 
 Basically everyday we had to make a game to learn and practice differents parts of Unity and game programming in general.
+The first week was focused on 2D games and the other one on 3D.
 
-At the end of each week, we had what we call a 'rush': We had 2 days to make a real game based on what we learned.
+At the end of each week, we had what we call a 'rush': We had 2 days to make a real game based on what we learnedm just like in a game jam.
 
 ## Shortcuts
 
@@ -26,4 +27,15 @@ At the end of each week, we had what we call a 'rush': We had 2 days to make a r
 * [Rush01 - RPG](/RUSH01%20-%20RPG)
 
 ### Some screenshots
-_incoming_
+
+From a basical plateformer like Thomas was alone
+
+![d01](/Screenshots/d01_0.png)
+
+To a tower defense
+
+![d03](/Screenshots/d03_1)
+
+Or a RPG/hack'n'slash
+
+![rush01](/Screenshots/rush01_2.png)
